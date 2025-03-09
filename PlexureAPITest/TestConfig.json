@@ -1,0 +1,6 @@
+{
+  "BaseUrl": "https://qatestapi.azurewebsites.net",
+  "ReportNameFolder":  "Reports/",
+  "Username": "Tester", //#{API-USERNAME}# - placeholder for api username for azure pipeline
+  "Password": "Plexure123" //#{API-PASSWORD}# - placeholder for api password for azure pipeline
+}
