@@ -1,4 +1,8 @@
 ﻿using Newtonsoft.Json.Linq;
+using PlexureAPITest.Helpers;
+using PlexureAPITest.Model;
+using PlexureAPITest.Requests;
+using RestSharp;
 using System;
 using System.IO;
 using System.Reflection;
@@ -33,7 +37,15 @@ namespace PlexureAPITest
         public static string AssemblyPath => Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? string.Empty;
         public static string GetAuthenticationToken()
         {
-            return "37cb9e58-99db-423c-9da5-42d5627614c5";
+            var token = "37cb9e58-99db-423c-9da5-42d5627614c5";
+            RestClient restClient = new RestClient();
+            RestRequest authenticationRequest = new RestRequest($"{BaseUrl}/api{PostLoginRequest.Address}");
+            authenticationRequest.AddParameter("username", Username);
+            authenticationRequest.AddParameter("password", Password);
+            RestResponse response = restClient.ExecutePostAsync(authenticationRequest).Result;
+            //token = ApiHelper.DeserializeRestResponseToDynamicObject(response).ToObject<dynamic>().token;
+            restClient.Dispose();
+            return token;
         }
     }
 }

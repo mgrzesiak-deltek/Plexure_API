@@ -61,7 +61,6 @@ namespace PlexureAPITest.Helpers
         {
             RestRequest request = new RestRequest(requestAddress);
             request.AddHeader("Accept", "application/json");
-            request.AddHeader("Charset", "utf-8");
             request.AddHeader("token", GlobalSetup._token);
             request.AddJsonBody(data);
             return request;
@@ -70,7 +69,7 @@ namespace PlexureAPITest.Helpers
         private static RestRequest PrepareGetRequest(string requestAddress)
         {
             RestRequest request = new RestRequest(requestAddress);
-            request.AddHeader("Accept", "application/json, text/plain, */*");
+            request.AddHeader("Accept", "application/json");
             request.AddHeader("token", GlobalSetup._token);
             return request;
         }

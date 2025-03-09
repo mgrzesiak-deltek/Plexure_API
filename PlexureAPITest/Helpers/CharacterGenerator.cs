@@ -7,7 +7,7 @@ namespace PlexureAPITest.Helpers
     public static class CharacterGenerator
     {
         private static readonly Random Random = new Random();
-        private const string Unicode = "ayzABUVWXYZ0123456789你好こんにちはمرحباانमस्तेგამარჯობაПриветשלוםęćąśńźżłŁĄĆŚŃŻŹ";
+        private const string Ascii = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         private const string Number = "0123456789";
 
         public static string GenerateRandomValue(CharacterGeneratorType characterGeneratorType, int stringLength = 10,
@@ -16,8 +16,8 @@ namespace PlexureAPITest.Helpers
             string randomString;
             switch (characterGeneratorType)
             {
-                case CharacterGeneratorType.Unicode:
-                    randomString = RandomUnicodeString(stringLength, whitespace);
+                case CharacterGeneratorType.Ascii:
+                    randomString = RandomAsciiString(stringLength, whitespace);
                     break;
                 case CharacterGeneratorType.Numbers:
                     randomString = RandomNumberString(stringLength, whitespace);
@@ -29,9 +29,9 @@ namespace PlexureAPITest.Helpers
             return randomString;
         }
 
-        private static string RandomUnicodeString(int length, bool whitespace = false)
+        private static string RandomAsciiString(int length, bool whitespace = false)
         {
-            return GenerateString(Unicode, length, whitespace);
+            return GenerateString(Ascii, length, whitespace);
         }
 
         private static string RandomNumberString(int length, bool whitespace = false)

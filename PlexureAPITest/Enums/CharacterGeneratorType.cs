@@ -2,7 +2,7 @@
 {
     public enum CharacterGeneratorType
     {
-        Unicode,
+        Ascii,
         Numbers
     }
 }
