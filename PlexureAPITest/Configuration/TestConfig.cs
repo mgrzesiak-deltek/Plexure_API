@@ -9,11 +9,11 @@ using System.Reflection;
 
 namespace PlexureAPITest
 {
-    public static class TestConfig1
+    public static class TestConfig
     {
         private static readonly JObject _config;
 
-        static TestConfig1()
+        static TestConfig()
         {
             string tmp = string.Empty;
             string configFileName = @"\TestConfig.json";

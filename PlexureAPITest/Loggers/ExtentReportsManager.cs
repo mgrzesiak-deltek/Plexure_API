@@ -30,7 +30,7 @@ namespace PlexureAPITest.Loggers
             {
                 if (_instance == null)
                 {
-                    string reportFolderPath = GlobalSetup.GetProjectPath() + TestConfig1.ReportNameFolder;
+                    string reportFolderPath = GlobalSetup.GetProjectPath() + TestConfig.ReportNameFolder;
                     Directory.CreateDirectory(reportFolderPath);
                     ExtentSparkReporter sparkReporter = new ExtentSparkReporter(reportFolderPath + BeginOfDocumentName +
                         _timeFromBeingTests.ToString(FullDataFormat) + ReportsFileFormat);

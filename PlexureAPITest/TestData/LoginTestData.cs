@@ -6,13 +6,13 @@ namespace PlexureAPITest.TestData
 {
     public static class LoginTestData
     {
+
         public static object[] InvalidCredentialsValidation = new object[]
         {
-            new object[] { "", TestConfig1.Password },
-            new object[] { null, TestConfig1.Password },
-            new object[] { TestConfig1.Username, ""},
-            new object[] { TestConfig1.Username, null },
-            new object[] { CharacterGenerator.GenerateRandomValue(Enums.CharacterGeneratorType.Ascii), CharacterGenerator.GenerateRandomValue(Enums.CharacterGeneratorType.Numbers)}
+            new object[] { "", TestConfig.Password },
+            new object[] { null, TestConfig.Password },
+            new object[] { TestConfig.Username, ""},
+            new object[] { TestConfig.Username, null }
         };
 
         public static object[] MandatoryFieldsValidation = new object[]

@@ -14,7 +14,7 @@ namespace PlexureAPITest
         {
             ExtentReportsTest = GlobalSetup._extentReports.CreateTest(PrepareTestName());
             Log = new Log(ExtentReportsTest);
-            Log.Info($"Start running test under {TestConfig1.BaseUrl} address.");
+            Log.Info($"Start running test under {TestConfig.BaseUrl} address.");
         }
 
         [TearDown]

@@ -35,7 +35,7 @@ namespace PlexureAPITest.Tests
             // HttpStatusCode = BadRequest and ErrorMessage = 'Username or password is incorrect'
 
             var expectedUserId = 1;
-            dynamic loginRequestBody = _postLoginRequest.CreateLoginRequest(TestConfig1.Username, TestConfig1.Password);
+            dynamic loginRequestBody = _postLoginRequest.CreateLoginRequest(TestConfig.Username, TestConfig.Password);
             RestResponse restResponse = ApiHelper.PrepareRestResponseForPostRequest(
                 PostLoginRequest.Address,
                 loginRequestBody);

@@ -145,11 +145,10 @@
     <Compile Include="Components\ErrorMessageComponent.cs" />
     <Compile Include="Configuration\EachTestRunner.cs" />
     <Compile Include="Configuration\GlobalSetup.cs" />
-    <Compile Include="Configuration\TestConfig1.cs" />
+    <Compile Include="Configuration\TestConfig.cs" />
     <Compile Include="Constants\ErrorMessages.cs" />
     <Compile Include="Enums\CharacterGeneratorType.cs" />
     <Compile Include="Helpers\CharacterGenerator.cs" />
-    <Compile Include="Model\Hdader.cs" />
     <Compile Include="Helpers\ApiHelper.cs" />
     <Compile Include="Loggers\ExtentReportsManager.cs" />
     <Compile Include="Loggers\Log.cs" />
@@ -160,12 +159,7 @@
     <Compile Include="Requests\GetPoints.cs" />
     <Compile Include="Requests\PostPurchase.cs" />
     <Compile Include="Requests\PostLoginRequest.cs" />
-    <Compile Include="Response.cs" />
-    <Compile Include="ResponseEntities.cs" />
-    <Compile Include="Service.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Test.cs" />
-    <Compile Include="TestConfig.cs" />
     <Compile Include="TestData\LoginTestData.cs" />
     <Compile Include="Tests\PurchaseTests.cs" />
     <Compile Include="Tests\LoginTests.cs" />
@@ -183,7 +177,9 @@
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include=".gitignore" />
+  </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.3.0.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.Analyzers.dll" />
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.3.0.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />

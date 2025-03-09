@@ -23,14 +23,14 @@ namespace PlexureAPITest
             _extentReportsManager = new ExtentReportsManager();
             _extentReports = _extentReportsManager.PrepareExtentReports();
             XmlConfigurator.Configure(new Uri(GetProjectPath() + Log4NetConfigPath));
-            _token = TestConfig1.GetAuthenticationToken();
-            _baseUrl = $"{TestConfig1.BaseUrl}/api";
+            _token = TestConfig.GetAuthenticationToken();
+            _baseUrl = $"{TestConfig.BaseUrl}/api";
         }
 
         public static string GetProjectPath()
         {
-            int binFolderPathIndex = TestConfig1.AssemblyPath.LastIndexOf("bin", StringComparison.Ordinal);
-            string actualPath = TestConfig1.AssemblyPath.Substring(0,binFolderPathIndex);
+            int binFolderPathIndex = TestConfig.AssemblyPath.LastIndexOf("bin", StringComparison.Ordinal);
+            string actualPath = TestConfig.AssemblyPath.Substring(0,binFolderPathIndex);
             string projectPath = new Uri(actualPath).LocalPath;
             return projectPath;
         }
