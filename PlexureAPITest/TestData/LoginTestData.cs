@@ -12,7 +12,8 @@ namespace PlexureAPITest.TestData
             new object[] { "", TestConfig.Password },
             new object[] { null, TestConfig.Password },
             new object[] { TestConfig.Username, ""},
-            new object[] { TestConfig.Username, null }
+            new object[] { TestConfig.Username, null },
+            new object[] { "RandomNumber", "RandomAscii" }
         };
 
         public static object[] MandatoryFieldsValidation = new object[]

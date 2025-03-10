@@ -15,12 +15,6 @@ namespace PlexureAPITest.Loggers
             _log = LogManager.GetLogger(TestContext.CurrentContext.Test.Name);
         }
 
-        public void Error(string message)
-        {
-            _extentReportsTest.Log(Status.Error, message);
-            _log.Error(message);
-        }
-
         public void Info(string message)
         {
             _extentReportsTest.Log(Status.Info, message);

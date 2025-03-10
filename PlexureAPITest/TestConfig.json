@@ -1,6 +1,7 @@
 {
   "BaseUrl": "https://qatestapi.azurewebsites.net",
-  "ReportNameFolder":  "Reports/",
+  "DefaultToken": "37cb9e58-99db-423c-9da5-42d5627614c5",
+  "ReportNameFolder": "Reports/",
   "Username": "Tester", //#{API-USERNAME}# - placeholder for api username for azure pipeline
   "Password": "Plexure123" //#{API-PASSWORD}# - placeholder for api password for azure pipeline
 }

@@ -26,7 +26,7 @@ namespace PlexureAPITest.Requests
             Log.Info($"Purchase with {actualPurchaseDetails.ProductId} product id has been completed.");
             Assert.Multiple(() =>
             {
-                Assert.That(actualPurchaseDetails.ProductId, Is.EqualTo(1));
+                Assert.That(actualPurchaseDetails.ProductId, Is.EqualTo(1)); // fix productId
             });
         }
     }

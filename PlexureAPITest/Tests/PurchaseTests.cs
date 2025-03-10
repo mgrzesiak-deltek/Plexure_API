@@ -60,7 +60,7 @@ namespace PlexureAPITest.Tests
             PointDto secondGetPointsResponseDetails = ApiHelper.DeserializeRestResponseToDynamicObject(restResponse).ToObject<PointDto>();
             //validations
             ApiHelper.CheckIfStatusCodeIsAsExpected(restResponse, HttpStatusCode.Accepted);
-            _postPurchase.CheckIfPurchaseBasicDetailsAreAsExpected(purchaseResponseDetails);
+            _postPurchase.CheckIfPurchaseBasicDetailsAreAsExpected(purchaseResponseDetails);// to be done since I do not know how the response looks like
             Assert.That(currentPointsForGivenUserId + 100, Is.EqualTo(secondGetPointsResponseDetails.Points));
         }
 

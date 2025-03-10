@@ -50,6 +50,9 @@ namespace PlexureAPITest.Tests
         [Description("Check: Login negative scenarios - incorrect credentials")]
         public void Login_PostLoginNegativeScenario01(string username, string password)
         {
+            if (username == "RandomNumber") { username = CharacterGenerator.GenerateRandomValue(Enums.CharacterGeneratorType.Numbers); }
+            if (password == "RandomAscii") { password = CharacterGenerator.GenerateRandomValue(Enums.CharacterGeneratorType.Ascii); }
+
             dynamic loginRequestBody = _postLoginRequest.CreateLoginRequest(username, password);
             RestResponse restResponse = ApiHelper.PrepareRestResponseForPostRequest(
                 PostLoginRequest.Address,

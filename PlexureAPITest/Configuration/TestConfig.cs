@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json.Linq;
 using PlexureAPITest.Helpers;
-using PlexureAPITest.Model;
 using PlexureAPITest.Requests;
 using RestSharp;
 using System;
@@ -31,20 +30,29 @@ namespace PlexureAPITest
         }
 
         public static string BaseUrl => _config[nameof(BaseUrl)].Value<string>();
+        public static string DefaultToken => _config[nameof(DefaultToken)].Value<string>();
         public static string ReportNameFolder => _config[nameof(ReportNameFolder)].Value<string>();
         public static string Username => _config[nameof(Username)].Value<string>();
         public static string Password => _config[nameof(Password)].Value<string>();
         public static string AssemblyPath => Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? string.Empty;
         public static string GetAuthenticationToken()
         {
-            var token = "37cb9e58-99db-423c-9da5-42d5627614c5";
-            RestClient restClient = new RestClient();
-            RestRequest authenticationRequest = new RestRequest($"{BaseUrl}/api{PostLoginRequest.Address}");
-            authenticationRequest.AddParameter("username", Username);
-            authenticationRequest.AddParameter("password", Password);
-            RestResponse response = restClient.ExecutePostAsync(authenticationRequest).Result;
-            //token = ApiHelper.DeserializeRestResponseToDynamicObject(response).ToObject<dynamic>().token;
-            restClient.Dispose();
+            // Token should change after the login call. Also it should have some expiration date
+            var token = DefaultToken;
+            
+            dynamic requestBody = new
+            {
+                Username = TestConfig.Username,
+                Password = TestConfig.Password
+            };
+            
+            RestClient client = new RestClient();
+            RestRequest request = new RestRequest($"{BaseUrl}/api{PostLoginRequest.Address}");
+            request.AddHeader("Accept", "application/json");
+            request.AddJsonBody((object)requestBody);
+            RestResponse response = client.ExecutePostAsync(request).Result;
+            token = ApiHelper.DeserializeRestResponseToDynamicObject(response).ToObject<dynamic>().AccessToken;
+            client.Dispose();
             return token;
         }
     }
